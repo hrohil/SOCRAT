@@ -14,9 +14,4 @@ module.exports = class SVMMainCtrl extends BaseCtrl
     @dataPoints = null
 
     @$scope.$on 'svm:displayData',(event, dataFrame) =>
-      @$timeout => @updateTableData(dataFrame)
-
-  updateTableData: (dataFrame) ->
-    if dataFrame?
-      @dataPoint
-      @dataPoints = dataFrame
+      @chartData = dataFrame

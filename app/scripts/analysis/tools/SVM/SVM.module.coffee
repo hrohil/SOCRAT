@@ -13,10 +13,14 @@ module.exports = cluster = new Module
       'app_analysis_svm_initService': require 'scripts/analysis/tools/SVM/SVMInit.service.coffee'
       'app_analysis_svm_msgService': require 'scripts/analysis/tools/SVM/SVMMsgService.service.coffee'
       'app_analysis_svm_dataService': require 'scripts/analysis/tools/SVM/SVMDataService.service.coffee'
+      'app_analysis_svm_svmgraph': require 'scripts/analysis/tools/SVM/SVMGraphService.service.coffee'
 
     controllers:
       'svmMainCtrl': require 'scripts/analysis/tools/SVM/SVMMainCtrl.ctrl.coffee'
       'svmSidebarCtrl': require 'scripts/analysis/tools/SVM/SVMSidebarCtrl.ctrl.coffee'
+
+    directives:
+      'svmgraph': require 'scripts/analysis/tools/SVM/SVMDir.directive.coffee'
 
   # module state config
   state:
