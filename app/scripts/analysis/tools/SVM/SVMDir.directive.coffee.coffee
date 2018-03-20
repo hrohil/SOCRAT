@@ -12,8 +12,9 @@ module.exports = class SVMDir extends BaseDirective
     @restrict = 'E'
     @template = "<div id='vis' class='graph-container' style='overflow:auto; height: 600px'></div>"
 
-    @link = (scope) =>
-      scope.$watch 'mainArea.chartData', (newChartData) =>
-      data = newChartData.dataPoints
-      @svm.drawSVM(data)
+    #@link = (scope) =>
+    #  scope.$watch 'mainArea.chartData', (newChartData) =>
+    #  data = newChartData.dataPoints
+    data = []
+    @svm.drawSVM(data)
          
