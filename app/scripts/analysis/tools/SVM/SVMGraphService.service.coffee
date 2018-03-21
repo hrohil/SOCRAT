@@ -22,25 +22,25 @@ module.exports = class SVMGraph extends BaseService
       "$schema": "https://vega.github.io/schema/vega-lite/v2.0.json",
       "data": {
         "values": [
-          {"a": 5,"b": 28,"c":"one"}, {"a": 34,"b": 55,"c":"two"}, {"a": 45,"b": 43,"c":"two"},
-          {"a": 5,"b": 91,"c":"two"}, {"a": 13,"b": 81,"c":"two"}, {"a": 56,"b": 53,"c":"two"},
-          {"a": 15,"b": 19,"c":"one"}, {"a": 15,"b": 87,"c":"two"}, {"a": 13,"b": 52,"c":"one"},
-          {"line": 0,"lined": 100},{"line": 60,"lined": 0}
+          {"x-c": 5,"y-c": 28,"class":"one"}, {"x-c": 34,"y-c": 55,"class":"two"}, {"x-c": 45,"y-c": 43,"class":"two"},
+          {"x-c": 5,"y-c": 91,"class":"two"}, {"x-c": 13,"y-c": 81,"class":"two"}, {"x-c": 56,"y-c": 53,"class":"two"},
+          {"x-c": 15,"y-c": 19,"class":"one"}, {"x-c": 15,"y-c": 87,"class":"two"}, {"x-c": 13,"y-c": 52,"class":"one"},
+          {"x-l": 0,"y-l": 100},{"x-l": 60,"y-l": 0}
         ]
       },
       "layer":[
           {"mark": "point",
           "encoding": {
-          "x": {"field": "a","type": "quantitative"},
-          "y": {"field": "b","type": "quantitative"},
-          "color": {"field": "c", "type": "nominal"}
+          "x": {"field": "x-c","type": "quantitative"},
+          "y": {"field": "y-c","type": "quantitative"},
+          "color": {"field": "class", "type": "nominal"}
           }
           },  
           {
           "mark":"line",
           "encoding":{
-          "x": {"field": "line","type": "quantitative"},
-          "y": {"field": "lined","type": "quantitative"}
+          "x": {"field": "x-l","type": "quantitative"},
+          "y": {"field": "y-l","type": "quantitative"}
           }
           }
         ]
