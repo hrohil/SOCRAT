@@ -41,7 +41,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
     # dataset-specific
     @dataFrame = null
 
-    @kernels = @app_analysis_svm_metrics.getKernelNames()
+    # @kernels = @app_analysis_svm_metrics.getKernelNames()
 
     # choose first algorithm as default one
     if @algorithms.length > 0
@@ -49,8 +49,8 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
       @updateAlgControls()
 
     # choose first kernel as default one
-    if @kernels.length > 0
-      @selectedKernel = @kernels[0]
+    # if @kernels.length > 0
+    #   @selectedKernel = @kernels[0]
 
     # ASK BRADY
     @$timeout -> $('input[type=checkbox]').bootstrapSwitch()
@@ -188,6 +188,13 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
       hyperPar =
         kernel: @selectedKernel
         c: @c
+      regression = false
+
+
+    if @algParams.numEstimators
+      hyperPar =
+        numEstimators = @numEstimators
+      regression = true
 
     # Set data to model
     @algorithmsService.passDataByName(@selectedAlgorithm, algData)
@@ -198,7 +205,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
       dataPoints: algData.data
       labels: algData.labels
       model: @selectedAlgorithm
-
+      regression: regression
 
   reset: ->
     @chosenCols = []
