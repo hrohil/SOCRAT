@@ -64,7 +64,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
 
   updateAlgControls: () ->
     @algParams = @algorithmsService.getParamsByName @selectedAlgorithm
-    if @algParams.numEstimators:
+    if @algParams.numEstimators
       @regression = true
 
   # update data-driven sidebar controls
@@ -196,7 +196,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
 
     if @algParams.numEstimators
       hyperPar =
-        numEstimators = @numEstimators
+        numEstimators: @numEstimators
       regression = true
 
     # Set data to model
