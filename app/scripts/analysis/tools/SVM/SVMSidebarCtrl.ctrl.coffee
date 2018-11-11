@@ -46,6 +46,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
     # choose first algorithm as default one
     if @algorithms.length > 0
       @selectedAlgorithm = @algorithms[0]
+      @regression = false
       @updateAlgControls()
 
     # choose first kernel as default one
@@ -63,6 +64,8 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
 
   updateAlgControls: () ->
     @algParams = @algorithmsService.getParamsByName @selectedAlgorithm
+    if @algParams.numEstimators:
+      @regression = true
 
   # update data-driven sidebar controls
   updateSidebarControls: (data) ->
@@ -87,7 +90,7 @@ module.exports = class SVMSidebarCtrl extends BaseCtrl
       sendData = ([row[xCol], row[yCol]] for row in data.data) unless @chosenCols.length < 2
       legendDict = {}
       labelDict = {}
-      if @labelCol
+      if @labelCol and not @regression
         # HAVE SOMEONE REVISE THIS
         labelIndex = data.header.indexOf @labelCol
         @uniqueLabels = @uniqueVals (row[labelIndex] for row in data.data)

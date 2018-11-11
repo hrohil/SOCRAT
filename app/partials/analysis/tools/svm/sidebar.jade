@@ -45,12 +45,22 @@ div(ng-controller="svmSidebarCtrl as sidebar")
             ng-options="col for col in sidebar.numericalCols"
             ng-change="sidebar.updateChosenCols()"
             )
-          div.form-group
+          div.form-group(ng-show="not sidebar.regression")
             label Labels column &nbsp;
             //- show data header column names
             select.form-control(
             ng-model="sidebar.labelCol"
             ng-options="col for col in sidebar.categoricalCols"
+            ng-init="sidebar.labelCol = null"
+            ng-change="sidebar.updateDataPoints(sidebar.dataFrame)"
+            )
+              option(value="") No labels
+          div.form-group(ng-show="sidebar.regression")
+            label Labels column &nbsp;
+            //- show data header column names
+            select.form-control(
+            ng-model="sidebar.labelCol"
+            ng-options="col for col in sidebar.numericalCols"
             ng-init="sidebar.labelCol = null"
             ng-change="sidebar.updateDataPoints(sidebar.dataFrame)"
             )
