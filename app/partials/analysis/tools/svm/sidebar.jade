@@ -20,21 +20,13 @@ div(ng-controller="svmSidebarCtrl as sidebar")
               ng-options="c for c in sidebar.algParams.c"
               ng-init="sidebar.c = sidebar.algParams.c[0]"
               )
-          div.form-group(ng-show="sidebar.algParams.kernel")
+          div.form-group(ng-show="sidebar.kernels")
             label Kernel &nbsp;
             select.form-control(
               ng-model="sidebar.selectedKernel"
-              ng-options="kern for kern in sidebar.algParams.kernel"
-              ng-init="sidebar.selectedKernel = sidebar.algParams.kernel[0]"
+              ng-options="kern for kern in sidebar.kernels"
+              ng-init="sidebar.kernel = sidebar.kernels[0]"
             )
-          div.form-group(ng-show="sidebar.algParams.numEstimators")
-            fieldset.form-inline
-              label Number of Trees &nbsp;
-              select.form-control(
-              ng-model="sidebar.numEstimators"
-              ng-options="c for c in sidebar.algParams.numEstimators"
-              ng-init="sidebar.numEstimators = sidebar.algParams.numEstimators[0]"
-              )
           hr
         fieldset(ng-show="sidebar.dataFrame")
           legend Dataset
