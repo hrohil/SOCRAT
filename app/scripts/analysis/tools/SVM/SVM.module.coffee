@@ -17,7 +17,6 @@ module.exports = cluster = new Module
       'app_analysis_svm_metrics': require 'scripts/analysis/tools/SVM/SVMMetrics.service.coffee'
       'app_analysis_svm_csvc': require 'scripts/analysis/tools/SVM/SVMCSVC.service.coffee'
       'app_analysis_svm_svmgraph': require 'scripts/analysis/tools/SVM/SVMGraphService.service.coffee'
-      'app_analysis_svm_mlregression' : require 'scripts/analysis/tools/SVM/MLRegression.service.coffee'
 
     controllers:
       'svmMainCtrl': require 'scripts/analysis/tools/SVM/SVMMainCtrl.ctrl.coffee'
